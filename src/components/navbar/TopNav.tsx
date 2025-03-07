@@ -9,7 +9,7 @@ function TopNav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0  z-50  w-full bg-rose-50 shadow rounded-md">
+    <header className="sticky top-0 z-50 max-w-screen bg-rose-50 shadow rounded-md lg:mt-2 lg:mx-10 md:mt-2 md:mx-7 ">
       <nav className="flex items-center justify-between p-2 md:px-4">
         {/* Logo */}
         <h1 className="text-2xl font-black font-sans flex gap-2">
@@ -40,7 +40,7 @@ function TopNav() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-rose-800"
+          className="md:hidden text-rose-800 "
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -49,7 +49,7 @@ function TopNav() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden flex flex-col items-center gap-4 bg-rose-100  text-rose-500 font-bold  p-4 m-4 rounded-xl">
+        <div className="md:hidden flex flex-col items-center gap-4 bg-rose-100  text-rose-500 font-bold  p-4 m-4 rounded-xl ">
           <Link href="/members" className="text-rose-500 font-mono text-xl font-bold  hover:text-rose-600 hover:rotate-2 " onClick={() => setMenuOpen(false)}>Matches</Link>
           <Link href="/lists" className="text-rose-500 font-mono text-xl font-bold  hover:text-rose-600 hover:rotate-2" onClick={() => setMenuOpen(false)}>Lists</Link>
           <Link href="/messages" className="text-rose-500 font-mono text-xl font-bold  hover:text-rose-600 hover:rotate-2" onClick={() => setMenuOpen(false)}>Messages</Link>
