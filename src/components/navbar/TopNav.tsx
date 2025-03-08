@@ -9,7 +9,7 @@ function TopNav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 max-w-screen bg-rose-50 shadow rounded-md lg:mt-2 lg:mx-10 md:mt-2 md:mx-7 ">
+    <header className="sticky top-0 z-50 max-w-screen bg-rose-50 shadow rounded-md lg:mt-2 lg:mx-20 md:mt-2 md:mx-7 ">
       <nav className="flex items-center justify-between p-2 md:px-4">
         {/* Logo */}
         <h1 className="text-2xl font-black font-sans flex gap-2">
