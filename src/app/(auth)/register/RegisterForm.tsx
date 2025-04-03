@@ -6,17 +6,41 @@ import { Label } from "@/components/ui/label"
 import { useForm } from "react-hook-form"
 import { RegisterSchema,registerSchema } from "@/lib/schemas/RegisterSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { registerUser } from "@/app/actions/authActions"
 
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
-    const { register, handleSubmit, formState: { errors} } = useForm<RegisterSchema>({
-        resolver:zodResolver(registerSchema),
+    const { register, handleSubmit,setError, formState: { errors, isValid, isSubmitting} } = useForm<RegisterSchema>({
+       // resolver:zodResolver(registerSchema),
+       mode:"onTouched"
     });
-    const onSubmit = (data:RegisterSchema) => {
-        console.log(data);
+    const onSubmit =async (data:RegisterSchema) => {
+        const result = await registerUser(data)
+
+        if (result.status === 'success') {
+          console.log("User registered successfully")
+        } else {
+          if(Array.isArray(result.error)) {
+            result.error.forEach((e: any) => {
+              console.log("e::: ", e);
+              const fieldName = e.path.join(".") as 
+              | "email"
+              | "name"
+              | "password";
+
+              setError(fieldName, {
+                message: e.message,
+              })
+            })
+          } else {
+            setError("root.serverError", {
+              message: result.error,
+            })
+          }
+        }
     }
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props} onSubmit={handleSubmit(onSubmit)}>

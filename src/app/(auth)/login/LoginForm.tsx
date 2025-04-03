@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label"
 import { useForm } from "react-hook-form"
 import { loginSchema, LoginSchema } from "@/lib/schemas/LoginSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { SignInUser } from "@/app/actions/authActions"
+import { useRouter } from "next/navigation"
 
 
 export function LoginForm({
@@ -15,8 +17,14 @@ export function LoginForm({
     const { register, handleSubmit, formState: { errors} } = useForm<LoginSchema>({
         resolver:zodResolver(loginSchema),
     });
-    const onSubmit = (data:LoginSchema) => {
-        console.log(data);
+    const router = useRouter();
+    const onSubmit =async (data:LoginSchema) => {
+        const result = await SignInUser(data);
+        if (result.status === "success") {
+          router.push("/members");
+        } else {
+          console.error(result.error as string);
+        }
     }
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props} onSubmit={handleSubmit(onSubmit)}>
