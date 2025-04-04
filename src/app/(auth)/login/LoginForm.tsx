@@ -8,6 +8,7 @@ import { loginSchema, LoginSchema } from "@/lib/schemas/LoginSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SignInUser } from "@/app/actions/authActions"
 import { useRouter } from "next/navigation"
+import { toast } from "react-toastify"
 
 
 export function LoginForm({
@@ -23,7 +24,7 @@ export function LoginForm({
         if (result.status === "success") {
           router.push("/members");
         } else {
-          console.error(result.error as string);
+         toast.error(result.error as string);
         }
     }
   return (

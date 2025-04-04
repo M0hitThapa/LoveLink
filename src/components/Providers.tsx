@@ -1,5 +1,6 @@
-import { NextUIProvider } from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 import React, { ReactNode } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Providers({
     children,
@@ -7,6 +8,8 @@ export default function Providers({
     children: ReactNode;
 }) {
     return(
-        <NextUIProvider>{children}</NextUIProvider>
+        <HeroUIProvider>
+            <ToastContainer position="bottom-right" hideProgressBar />
+            {children}</HeroUIProvider>
     )
 }
