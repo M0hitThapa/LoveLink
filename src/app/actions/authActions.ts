@@ -9,6 +9,7 @@ import { User } from 'next-auth';
 import { LoginSchema } from '@/lib/schemas/LoginSchema';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import { signOut } from '@/auth';
 
 
 export async function SignInUser(data: LoginSchema): Promise<ActionResult<string>> {
@@ -62,6 +63,10 @@ export async function registerUser(data: RegisterSchema): Promise<ActionResult<U
         console.log(error);
         return {status:'error', error:'something went wrong'}
     }
+}
+
+export async function signOutUser() {
+    await signOut({ redirectTo: '/' });
 }
 
 
