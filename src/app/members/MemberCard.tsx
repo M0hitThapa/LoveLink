@@ -21,13 +21,14 @@ export default function MemberCard({
       as={Link}
       href={`/members/${member.userId}`}
       isPressable
+      className="bg-gradient-to-t from-black to-rose-700 pt-5 px-5 pb-13 rounded-2xl max-w-72 "
     >
       <Image
         isZoomed
         alt={member.name}
-        width={300}
+        width={250}
         src={member.image || "/images/user.png"}
-        className="aspect-square object-cover"
+        className="aspect-square rounded-2xl"
       />
      
       <CardFooter className="flex justify-start bg-black overflow-hidden absolute bottom-0 z-10 bg-dark-gradient">
