@@ -17,7 +17,7 @@ export default async function Layout({
     if(!member) return notFound();
 
     return (
-        <div className="grid grid-cols-12 gap-5 h-[80vh]">
+        <div className="grid grid-cols-12 gap-5 h-[80vh]  ">
         <div className="col-span-3">
           <MemberSidebar
             member={member}
