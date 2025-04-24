@@ -21,18 +21,18 @@ export default function MemberCard({
       as={Link}
       href={`/members/${member.userId}`}
       isPressable
-      className="bg-gradient-to-t from-black to-rose-700 pt-5 px-5 pb-13 rounded-2xl max-w-72 "
+      className="rounded-2xl max-w-72 "
     >
       <Image
         isZoomed
         alt={member.name}
         width={250}
         src={member.image || "/images/user.png"}
-        className="aspect-square rounded-2xl"
+        className="aspect-square rounded-2xl bg-rose-400 pr-2 pb-2"
       />
      
-      <CardFooter className="flex justify-start bg-black overflow-hidden absolute bottom-0 z-10 bg-dark-gradient">
-        <div className="flex flex-col text-white">
+      <CardFooter className="flex justify-center  overflow-hidden absolute bottom-0 z-10 ">
+        <div className="flex flex-col text-[#fff3b0] items-center pb-2">
           <span className="font-semibold">
             {member.name},{" "}
             {calculateAge(member.dateOfBirth)}

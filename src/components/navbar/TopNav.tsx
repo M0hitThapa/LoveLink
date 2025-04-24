@@ -9,25 +9,25 @@ import { UserMenu } from "./UserMenu";
 async function TopNav() {
   const session = await auth()
   return (
-    <header className="sticky top-0 z-50 max-w-screen bg-rose-50/50 shadow rounded-md lg:mt-2 lg:mx-20 md:mt-2 md:mx-7">
+    <header className="sticky top-0 z-50 max-w-screen  shadow rounded-md lg:mt-2 lg:mx-20 md:mt-2 md:mx-7">
       <nav className="flex items-center justify-between p-1.5 md:px-4">
         {/* Logo */}
         <h1 className="text-2xl font-black font-sans flex gap-2  ">
-          <Link className="bg-gradient-to-r from-amber-800 to-blue-900 bg-clip-text text-transparent" href="/">
+          <Link className="bg-gradient-to-r from-blue-500 to-red-500 bg-clip-text text-transparent" href="/">
             LoveLink
           </Link>
           <MessageSquareHeart className="text-rose-600" />
         </h1>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex gap-12">
-          <Link href="/members" className="text-rose-500/80 font-mono  text-xl font-bold h-8 px-2 rounded-sm hover:text-rose-600 hover:rotate-2 hover:bg-rose-100">
+        <div className="hidden md:flex gap-14">
+          <Link href="/members" className="text-[#3c6e71] text-xl font-black font-mono hover:text-[#006d77] hover:bg-rose-300 hover:rounded-lg">
             Matches
           </Link>
-          <Link href="/lists" className="text-rose-500/80 font-mono text-xl font-bold h-8 px-2 rounded-sm hover:text-rose-600 hover:rotate-2 hover:bg-rose-100">
+          <Link href="/lists" className="text-[#3c6e71] text-xl font-black font-mono hover:text-[#006d77] hover:bg-rose-300 hover:rounded-lg">
             Lists
           </Link>
-          <Link href="/messages" className="text-rose-500/80 text-xl font-bold font-mono h-8 px-2 rounded-sm hover:text-rose-600 hover:rotate-2 hover:bg-rose-100">
+          <Link href="/messages" className="text-[#3c6e71] text-xl font-black font-mono hover:text-[#006d77] hover:bg-rose-300 hover:rounded-lg">
             Messages
           </Link>
         </div>
