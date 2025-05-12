@@ -9,11 +9,13 @@ import { UserMenu } from "./UserMenu";
 async function TopNav() {
   const session = await auth()
   return (
-    <header className="sticky top-0 z-50 max-w-screen  shadow rounded-md lg:mt-2 lg:mx-20 md:mt-2 md:mx-7">
-      <nav className="flex items-center justify-between p-1.5 md:px-4">
+<>
+
+    <header className="  sticky top-0 z-50 max-w-screen  shadow rounded-md lg:mt-2 lg:mx-20 md:mt-2 md:mx-7">
+      <nav className="  flex justify-between   p-1.5 md:px-4">
         {/* Logo */}
-        <h1 className="text-2xl font-black font-sans flex gap-2  ">
-          <Link className="bg-gradient-to-r from-blue-500 to-red-500 bg-clip-text text-transparent" href="/">
+        <h1 className="text-2xl font-black  flex gap-2  ">
+          <Link className="bg-gradient-to-r from-black to-white/20 bg-clip-text text-transparent" href="/">
             LoveLink
           </Link>
           <MessageSquareHeart className="text-rose-600" />
@@ -21,19 +23,19 @@ async function TopNav() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-14">
-          <Link href="/members" className="text-[#3c6e71] text-xl font-black font-mono hover:text-[#006d77] hover:bg-rose-300 hover:rounded-lg">
+          <Link href="/members" className="text-rose-500 text-xl font-black hover:text-rose-800">
             Matches
           </Link>
-          <Link href="/lists" className="text-[#3c6e71] text-xl font-black font-mono hover:text-[#006d77] hover:bg-rose-300 hover:rounded-lg">
+          <Link href="/lists" className="text-rose-500  text-xl font-black hover:text-rose-800">
             Lists
           </Link>
-          <Link href="/messages" className="text-[#3c6e71] text-xl font-black font-mono hover:text-[#006d77] hover:bg-rose-300 hover:rounded-lg">
+          <Link href="/messages" className="text-rose-500  text-xl font-black hover:text-rose-800">
             Messages
           </Link>
         </div>
 
         {/* Desktop Buttons */}
-        <div className="hidden md:flex gap-4">
+        <div className="hidden md:flex gap-4 ">
           {session?.user ? (
             <UserMenu />
           ) : (
@@ -53,14 +55,21 @@ async function TopNav() {
 
         {/* Mobile Toggle Button and Menu (Client Component) */}
        
-<ToggleMenu />
-      
-        
+
+      <div className="lg:hidden">
+         <ToggleMenu />
+      </div>
+          
       </nav>
+        
+         
+  
      
       
       
     </header>
+
+    </>
   );
 }
 

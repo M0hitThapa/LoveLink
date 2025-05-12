@@ -16,12 +16,13 @@ export default function MemberCard({
 
 }: Props) {
   return (
-    <Card
+   <div className="bg-gradient-to-r from-black/50 to-white/50 rounded-2xl max-w-64 ">
+     <Card
       fullWidth
       as={Link}
       href={`/members/${member.userId}`}
       isPressable
-      className="rounded-2xl max-w-72 "
+      className="rounded-2xl max-w-72 m-4"
     >
       <Image
         isZoomed
@@ -43,5 +44,6 @@ export default function MemberCard({
         </div>
       </CardFooter>
     </Card>
+   </div>
   );
 }

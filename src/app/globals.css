@@ -4,6 +4,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+body {
+  font-family:cursive;
+}
+
 :root {
   --background: oklch(0.94 0.02 345.70);
   --foreground: oklch(0.47 0 0);
